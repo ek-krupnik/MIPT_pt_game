@@ -14,9 +14,9 @@ def main():
 
     print ("Test builder : ")
 
-    my_own_factory = space_ships.Shipyard()
+    my_own_factory = space_ships.Shipyard()             # director
     ship_a = my_own_factory.construct_ship("B")
-    print ("army = ", ship_a.army)
+    print ("health = ", ship_a.health)
     print ("color = ", ship_a.color)
     print ("weapon = ", ship_a.weapon)
     print ("\n")
