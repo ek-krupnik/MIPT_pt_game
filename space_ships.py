@@ -7,6 +7,7 @@ class Ship(object):
         setattr(self, "army", 0)
         setattr(self, "color", "none")
         setattr(self, "weapon", False)
+    #     setattr(self, "speed", 10)
 
     def set_army(self, data):
         self.army = data
@@ -39,7 +40,7 @@ class ShipBuilderB(ShipBuilder):
     def create() -> Ship:
         product = Ship()
         product.set_army(200)
-        product.set_army("yellow")
+        product.set_color("yellow")
 
         return product
 
@@ -73,13 +74,3 @@ class Shipyard(object):
 
         else:
             print ("Wrong type of ship")
-
-# def main():
-#     my_own_factory = Shipyard()
-#     ship_a = my_own_factory.construct_ship("B")
-#     print ("army = ", ship_a.army)
-#     print ("color = ", ship_a.color)
-#     print ("weapon = ", ship_a.weapon)
-#
-# if __name__ == "__main__":
-#     main()

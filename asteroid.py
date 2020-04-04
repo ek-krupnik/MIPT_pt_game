@@ -16,7 +16,6 @@ class Asteroid(object):
 
 class SmallAsteroid(Asteroid):
     def creation(self):
-        print("we created it!")
         self.size = "small"
         return self
 
@@ -39,11 +38,3 @@ class SmallAsteroidFactory(AsteroidFactory):
 class BigAsteroidFactory(AsteroidFactory):
     def create(self) -> BigAsteroid:
         return BigAsteroid().creation()
-
-# def main():
-#     small_factory = SmallAsteroidFactory()
-#     my_little_asteroid = small_factory.create()         # object of SmallAsteroid
-#     print(my_little_asteroid.size)
-#
-# if __name__ == "__main__":
-#     main()
