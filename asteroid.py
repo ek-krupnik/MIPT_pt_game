@@ -5,23 +5,21 @@ from abc import abstractmethod
 class Asteroid(object):
 
     def __init__(self):
-        setattr(self, "size", "none")
+        setattr(self, "_size", "none")
         # setattr()
 
     @abstractmethod
     def creation(self):
-        # setattr(self, size, "none")
-        # setattr(self, color, "none")
         pass
 
 class SmallAsteroid(Asteroid):
     def creation(self):
-        self.size = "small"
+        self._size = "small"
         return self
 
 class BigAsteroid(Asteroid):
     def creation(self):
-        self.size = "big"
+        self._size = "big"
         return self
 
 

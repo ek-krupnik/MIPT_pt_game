@@ -4,19 +4,19 @@ from abc import abstractmethod
 class Ship(object):
 
     def __init__(self):
-        setattr(self, "army", 0)
-        setattr(self, "color", "none")
-        setattr(self, "weapon", False)
-    #     setattr(self, "speed", 10)
+        setattr(self, "_health", 0)
+        setattr(self, "_color", "none")
+        setattr(self, "_weapon", False)
+    #     setattr(self, "_speed", 10)
 
-    def set_army(self, data):
-        self.army = data
+    def set_health(self, data):
+        self._health = data
 
     def set_color(self, data):
-        self.color = data
+        self._color = data
 
     def set_weapon(self, data):
-        self.weapon = data
+        self._weapon = data
 
 
 class ShipBuilder(object):
@@ -30,7 +30,7 @@ class ShipBuilderA(ShipBuilder):
 
     def create() -> Ship:
         product = Ship()
-        product.set_army(100)
+        product.set_health(100)
         product.set_color("green")
         return product
 
@@ -39,7 +39,7 @@ class ShipBuilderB(ShipBuilder):
 
     def create() -> Ship:
         product = Ship()
-        product.set_army(200)
+        product.set_health(200)
         product.set_color("yellow")
 
         return product
@@ -49,7 +49,7 @@ class ShipBuilderC(ShipBuilder):
 
     def create() -> Ship:
         product = Ship()
-        product.set_army(200)
+        product.set_health(200)
         product.set_color("red")
         product.set_weapon(True)
 
