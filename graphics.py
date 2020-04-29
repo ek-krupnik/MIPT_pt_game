@@ -1,9 +1,10 @@
 import pygame
-from macros import *
-from character import *
-from space_ships import *
+
 from asteroid import *
 from bullet import *
+from character import *
+from space_ships import *
+from background_elements import *
 
 
 class DrawAdapter(object):
@@ -13,7 +14,7 @@ class DrawAdapter(object):
         pass
 
     @staticmethod
-    def draw_object(object_to_draw, surface, x=0, y=0):
+    def draw_object(surface, object_to_draw, x=0, y=0):
 
         if isinstance(object_to_draw, SmallAsteroid) or isinstance(object_to_draw, BigAsteroid):
             asteroid_to_draw = object_to_draw
@@ -29,14 +30,24 @@ class DrawAdapter(object):
             ship_to_draw = object_to_draw
             draw_ship(surface, ship_to_draw._color, x, y)
 
+        if isinstance(object_to_draw, Window):
+            draw_window(surface, object_to_draw._color)
+
+        if isinstance(object_to_draw, Lines):
+            draw_lines(surface, object_to_draw._color, object_to_draw._width)
+
+
+def draw_window(surface, color):
+    surface.fill(color)
+
 
 def draw_character(surface):
     pygame.draw.polygon(surface, YELLOW, CHARACTER_COORD, OBJECTS_WIDTH)
 
 
-def draw_lines(surface):
-    pygame.draw.line(surface, LIGHT_GRAY, [WIN_WIDTH / 3, WIN_HEIGHT], [WIN_WIDTH / 3, 0], LINE_WIDTH)
-    pygame.draw.line(surface, LIGHT_GRAY, [WIN_WIDTH / 3 * 2, WIN_HEIGHT], [WIN_WIDTH / 3 * 2, 0], LINE_WIDTH)
+def draw_lines(surface, color, width):
+    pygame.draw.line(surface, color, [WIN_WIDTH / 3, WIN_HEIGHT], [WIN_WIDTH / 3, 0], width)
+    pygame.draw.line(surface, color, [WIN_WIDTH / 3 * 2, WIN_HEIGHT], [WIN_WIDTH / 3 * 2, 0], width)
 
 
 def draw_asteroid(surface, size, center_x, center_y):
