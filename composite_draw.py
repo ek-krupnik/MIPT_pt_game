@@ -49,10 +49,10 @@ def draw_new_step(surface, time):
     # creation of exact space_ships (in depends on time - green/yellow/red)
 
     character = Character()
-    new_image = ImageOfObject(character, 100, 100)
+    new_image = ImageOfObject(character)
 
-    bullet = Bullet(200, 200, "up")
-    new_bullet = ImageOfObject(bullet, 300, 200)
+    bullet = Bullet(200, 200, "up")                 # as example
+    new_bullet = ImageOfObject(bullet, 300, 200)    # as example
 
     second_lay = ImageLayer()
     second_lay.add(new_image)
