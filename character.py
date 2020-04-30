@@ -1,6 +1,9 @@
-
+from macros import *
 
 class Character(object):
+
+    _bullet_speed = MIDDLE_SPEED
+
     def __new__(cls):
 
         if not hasattr(cls, '_instance'):

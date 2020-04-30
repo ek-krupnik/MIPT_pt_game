@@ -1,6 +1,4 @@
 import character
-import space_ships
-import asteroid
 import composite_draw
 from graphics import *
 
@@ -23,9 +21,6 @@ def main():
     draw_adapter.draw_object(surface, main_character)
 
     while True:
-
-        # draw_lines(surface)
-        # draw_adapter.draw_object(main_character, surface)
 
         clock.tick(FPS)
 

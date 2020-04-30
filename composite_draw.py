@@ -1,4 +1,3 @@
-from macros import *
 from graphics import*
 
 
@@ -8,7 +7,7 @@ class ImageLayer(object):
         self._children = []
 
     def add(self, new_object):
-        if not new_object in self._children:
+        if not (new_object in self._children):
             self._children.append(new_object)
 
     def remove(self, old_object):
