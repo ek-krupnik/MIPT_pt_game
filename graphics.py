@@ -21,7 +21,7 @@ class DrawAdapter(object):
             draw_asteroid(surface, asteroid_to_draw._size, x, y)
 
         if isinstance(object_to_draw, Character):
-            draw_character(surface)
+            draw_character(surface, x)
 
         if isinstance(object_to_draw, Bullet):
             draw_bullet(surface, x, y)
@@ -41,8 +41,13 @@ def draw_window(surface, color):
     surface.fill(color)
 
 
-def draw_character(surface):
-    pygame.draw.polygon(surface, YELLOW, CHARACTER_COORD, OBJECTS_WIDTH)
+def draw_character(surface, x):
+    if x == MIDDLE_X:
+        pygame.draw.polygon(surface, YELLOW, CHARACTER_MID_COORD, OBJECTS_WIDTH)
+    elif x == LEFT_X:
+        pygame.draw.polygon(surface, YELLOW, CHARACTER_LEFT_COORD, OBJECTS_WIDTH)
+    else:
+        pygame.draw.polygon(surface, YELLOW, CHARACTER_RIGHT_COORD, OBJECTS_WIDTH)
 
 
 def draw_lines(surface, color, width):
