@@ -31,32 +31,35 @@ class ImageOfObject(object):
         draw_adapter.draw_object(surface, self._object, self._x, self._y)
 
 
-def draw_new_step(surface, time):
+class Painter(object):
 
-    new_frame = ImageLayer()
+    @staticmethod
+    def draw_new_step(surface, time):
 
-    new_background = Window()
-    new_back = ImageOfObject(new_background)
-    new_frame.add(new_back)
+        new_frame = ImageLayer()
 
-    new_line = Lines()
-    new_art_line = ImageOfObject(new_line)
-    new_frame.add(new_art_line)
+        new_background = Window()
+        new_back = ImageOfObject(new_background)
+        new_frame.add(new_back)
 
-    # checking if need to change character coordinates
-    # updating of coordinates
-    # creation of new random asteroids
-    # creation of exact space_ships (in depends on time - green/yellow/red)
+        new_line = Lines()
+        new_art_line = ImageOfObject(new_line)
+        new_frame.add(new_art_line)
 
-    character = Character()
-    new_image = ImageOfObject(character, MIDDLE_X, DOWN_Y)  # as example
+        # checking if need to change character coordinates
+        # updating of coordinates
+        # creation of new random asteroids
+        # creation of exact space_ships (in depends on time - green/yellow/red)
 
-    bullet = Bullet(200, 200, "up")                         # as example
-    new_bullet = ImageOfObject(bullet, 300, 200)            # as example
+        character = Character()
+        new_image = ImageOfObject(character, MIDDLE_X, DOWN_Y)  # as example
 
-    second_lay = ImageLayer()
-    second_lay.add(new_image)
-    second_lay.add(new_bullet)
+        bullet = Bullet(200, 200, "up")                         # as example
+        new_bullet = ImageOfObject(bullet, 300, 200)            # as example
 
-    new_frame.add(second_lay)
-    new_frame.draw(surface)
+        second_lay = ImageLayer()
+        second_lay.add(new_image)
+        second_lay.add(new_bullet)
+
+        new_frame.add(second_lay)
+        new_frame.draw(surface)

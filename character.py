@@ -1,5 +1,6 @@
 from macros import *
 
+
 class Character(object):
 
     _bullet_speed = MIDDLE_SPEED
