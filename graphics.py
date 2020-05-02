@@ -36,7 +36,7 @@ class DrawAdapter(object):
             painter.draw_window(surface, object_to_draw._color)
 
         if isinstance(object_to_draw, Lines):
-            painter.cdraw_lines(surface, object_to_draw._color, object_to_draw._width)
+            painter.draw_lines(surface, object_to_draw._color, object_to_draw._width)
 
 
 class ConcretePainter(object):
