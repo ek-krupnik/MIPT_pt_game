@@ -19,6 +19,9 @@ class Parther(object):
         space_image = pygame.image.load('space.png').convert()
         space_image = pygame.transform.scale(space_image, (WIN_WIDTH, WIN_HEIGHT))
 
+        game_over_image = pygame.image.load('game_over.jpg').convert()
+        game_over_image = pygame.transform.scale(game_over_image, (WIN_WIDTH, WIN_HEIGHT))
+
         first_asteroid_image = pygame.image.load('first_asteroid.png').convert()
         first_asteroid_image = pygame.transform.scale(first_asteroid_image, SMALL_SIZE)
         second_asteroid_image = pygame.image.load('second_asteroid.png').convert()
@@ -76,7 +79,7 @@ class Parther(object):
                         key_status = "up"
 
             if end == "Game over":
-                surface.fill(GRAY)
+                surface.blit(game_over_image, START_COORD)
                 font = pygame.font.Font(None, TEXT_SIZE)
                 info_about_hp = font.render("Game over", True, DARK_RED)
                 surface.blit(info_about_hp, TEXT_END_COORD)
