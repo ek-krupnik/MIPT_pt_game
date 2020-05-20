@@ -19,29 +19,20 @@ class Parther(object):
         space_image = pygame.image.load('space.png').convert()
         space_image = pygame.transform.scale(space_image, (WIN_WIDTH, WIN_HEIGHT))
 
-        first_asteroid_image = pygame.image.load('first_asteroid.jpg').convert()
+        first_asteroid_image = pygame.image.load('first_asteroid.png').convert()
         first_asteroid_image = pygame.transform.scale(first_asteroid_image, SMALL_SIZE)
-        first_asteroid_image.set_colorkey(WHITE, -1)
-
-        second_asteroid_image = pygame.image.load('second_asteroid.jpg').convert()
+        second_asteroid_image = pygame.image.load('second_asteroid.png').convert()
         second_asteroid_image = pygame.transform.scale(second_asteroid_image, BIG_SIZE)
-        second_asteroid_image.set_colorkey(WHITE, -1)
 
-        green_ship = pygame.image.load('green_ship.jpg').convert()
+        green_ship = pygame.image.load('green_ship.png').convert()
         green_ship = pygame.transform.scale(green_ship, MIDDLE_SIZE)
-        green_ship.set_colorkey(WHITE, -1)
-
-        red_ship = pygame.image.load('red_ship.jpg').convert()
+        red_ship = pygame.image.load('red_ship.png').convert()
         red_ship = pygame.transform.scale(red_ship, MIDDLE_SIZE)
-        red_ship.set_colorkey(WHITE, -1)
-
-        yellow_ship = pygame.image.load('yellow_ship.jpg').convert()
+        yellow_ship = pygame.image.load('yellow_ship.png').convert()
         yellow_ship = pygame.transform.scale(yellow_ship, MIDDLE_SIZE)
-        yellow_ship.set_colorkey(WHITE, -1)
 
-        character_image = pygame.image.load('character.jpg').convert()
-        character_image = pygame.transform.scale(character_image, MIDDLE_SIZE)
-        character_image.set_colorkey(WHITE, -1)
+        character_image = pygame.image.load('character.png').convert()
+        character_image = pygame.transform.scale(character_image, BIG_SIZE)
 
         image_dict = {'surface': surface, 'space_image': space_image, 'first_asteroid_image': first_asteroid_image,
                       'second_asteroid_image': second_asteroid_image, 'green_ship': green_ship, 'red_ship': red_ship,

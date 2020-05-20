@@ -56,14 +56,11 @@ class ConcretePainter(object):
     @staticmethod
     def draw_character(surface, character_image, x):
         if x == MIDDLE_X:
-            # pygame.draw.polygon(surface, YELLOW, CHARACTER_MID_COORD, OBJECTS_WIDTH)
-            surface.blit(character_image, (int(MIDDLE_X - MIDDLE_SIZE[0] / 2), DOWN_Y))
+            surface.blit(character_image, (MIDDLE_X - BIG_SIZE[0] / 2, DOWN_Y - BIG_SIZE[1] / 2))
         elif x == LEFT_X:
-            # pygame.draw.polygon(surface, YELLOW, CHARACTER_LEFT_COORD, OBJECTS_WIDTH)
-            surface.blit(character_image, (int(LEFT_X - MIDDLE_SIZE[0] / 2), DOWN_Y))
+            surface.blit(character_image, (LEFT_X - BIG_SIZE[0] / 2, DOWN_Y - BIG_SIZE[1] / 2))
         else:
-            # pygame.draw.polygon(surface, YELLOW, CHARACTER_RIGHT_COORD, OBJECTS_WIDTH)
-            surface.blit(character_image, (int(RIGHT_X - MIDDLE_SIZE[0] / 2), DOWN_Y))
+            surface.blit(character_image, (RIGHT_X - BIG_SIZE[0] / 2, DOWN_Y - BIG_SIZE[1] / 2))
 
     @staticmethod
     def draw_lines(surface, color, width):
