@@ -65,7 +65,7 @@ class ConcretePainter(object):
             radius = SMALL_ASTEROID_RADIUS
         else:
             radius = BIG_ASTEROID_RADIUS
-        pygame.draw.circle(surface, LIGHT_BLUE, (center_x, center_y), radius)
+        pygame.draw.circle(surface, LIGHT_BLUE, (int(center_x), int(center_y)), int(radius))
 
     @staticmethod
     def draw_bullet(surface, x, y):
@@ -80,4 +80,4 @@ class ConcretePainter(object):
         else:
             color_to_draw = DARK_YELLOW
 
-        pygame.draw.rect(surface, color_to_draw, (x, y, SHIP_WIDTH, SHIP_LEN))
+        pygame.draw.rect(surface, color_to_draw, (x - SHIP_WIDTH / 2, y - SHIP_LEN / 2, SHIP_WIDTH, SHIP_LEN))

@@ -9,6 +9,7 @@ class Ship(object):
         setattr(self, "_color", "none")
         setattr(self, "_weapon", False)
         setattr(self, "_bullet_speed", 0)
+        setattr(self, "_bullet_hit", 0)
 
     def set_health(self, data):
         self._health = data
@@ -22,6 +23,8 @@ class Ship(object):
     def set_bullet_speed(self, data):
         self._bullet_speed = data
 
+    def set_bullet_hit(self, data):
+        self._bullet_hit = data
 
 class ShipBuilder(object):
 
@@ -36,6 +39,8 @@ class ShipBuilderA(ShipBuilder):
         product = Ship()
         product.set_health(100)
         product.set_color("green")
+        product.set_weapon(True)
+        product.set_bullet_hit(GREEN_BULLET_HIT)
         return product
 
 
@@ -47,6 +52,7 @@ class ShipBuilderB(ShipBuilder):
         product.set_color("yellow")
         product.set_weapon(True)
         product.set_bullet_speed(LOW_SPEED)
+        product.set_bullet_hit(YELLOW_BULLET_HIT)
         return product
 
 
@@ -58,6 +64,7 @@ class ShipBuilderC(ShipBuilder):
         product.set_color("red")
         product.set_weapon(True)
         product.set_bullet_speed(HIGH_SPEED)
+        product.set_bullet_hit(RED_BULLET_HIT)
         return product
 
 
