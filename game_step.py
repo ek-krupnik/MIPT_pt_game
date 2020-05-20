@@ -35,6 +35,16 @@ def bullet_hit_character(list_bullets, image):
     return summary_hit
 
 
+def get_bullet_speed(timer):
+    if timer > FIRST_TIME_EDGE:
+        if timer > SECOND_TIME_EDGE:
+            return BULLET_HIGH_SPEED
+        else:
+            return BULLET_MIDDLE_SPEED
+    else:
+        return BULLET_LOW_SPEED
+
+
 # returns lists = [list_objects (images) , list_bullets]
 def get_state(list_objects, list_bullets):
 
@@ -52,12 +62,12 @@ def get_state(list_objects, list_bullets):
             summary_hit = bullet_hit_character(list_bullets, image)
             old_object._health -= summary_hit
             if old_object._health <= 0:
-                return "GAME OVER"
+                return "GAME OVER : health"
 
             for another_image in list_objects:
                 if dist(image, another_image) and image != another_image and\
                         not isinstance(another_image._object, Bullet):
-                    return "GAME OVER"
+                    return "GAME OVER : broken"
 
             new_list.append(image)
 
@@ -87,7 +97,7 @@ def get_state(list_objects, list_bullets):
 
 
 # returns lists = [list_objects (images) , list_bullets]
-def calculate_step(timer, list_objects, list_bullets, key_status):
+def calculate_step(timer, step, list_objects, list_bullets, key_status):
 
     upper = WIN_HEIGHT
     for image in list_objects:
@@ -113,7 +123,7 @@ def calculate_step(timer, list_objects, list_bullets, key_status):
         # about bullet
         elif isinstance(old_object, Bullet):
             if old_object._direction == 'down':
-                image._y += old_object._speed
+                image._y += get_bullet_speed(timer)
             else:
                 image._y -= old_object._speed
 
@@ -132,7 +142,7 @@ def calculate_step(timer, list_objects, list_bullets, key_status):
 
         # create new bullets
         if isinstance(old_object, Ship):
-            if timer % RAND_TIME == 0:
+            if step % BULLET_TIME == 0:
                 new_bullet = Bullet('down', bullet_hit)
                 new_bullet_image = composite_draw.ImageOfObject(new_bullet, image._x, image._y)
                 list_bullets.append(new_bullet_image)

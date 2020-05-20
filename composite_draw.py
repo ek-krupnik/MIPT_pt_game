@@ -27,15 +27,15 @@ class ImageOfObject(object):
         self._x = x
         self._y = y
 
-    def draw(self, surface):
+    def draw(self, image_dict):
         draw_adapter = DrawAdapter()
-        draw_adapter.draw_object(surface, self._object, self._x, self._y)
+        draw_adapter.draw_object(image_dict, self._object, self._x, self._y)
 
 
 class Painter(object):
 
     @staticmethod
-    def draw_new_step(surface, list_objects, list_bullets):
+    def draw_new_step(image_dict, list_objects, list_bullets):
 
         new_frame = ImageLayer()
 
@@ -53,9 +53,9 @@ class Painter(object):
         list_objects = state[0]
         list_bullets = state[1]
 
-        if state == "GAME OVER":
+        if state == "GAME OVER : health" or state == "GAME OVER : broken":
             print(state)
-            exit()
+            return "Game over"
 
         for image in list_objects:
             old_object = image._object
@@ -66,24 +66,10 @@ class Painter(object):
             else:
                 second_lay.add(image)
 
-        # checking if need to change character coordinates
-        # updating of coordinates
-        # creation of new random asteroids
-        # creation of exact space_ships (in depends on time - green/yellow/red)
-
-        # character = Character()
-        # new_image = ImageOfObject(character, MIDDLE_X, DOWN_Y)  # as example
-
-        # bullet = Bullet(200, 200, "up")                         # as example
-        # new_bullet = ImageOfObject(bullet, 300, 200)            # as example
-
-        # second_lay = ImageLayer()
-        # second_lay.add(new_image)
-
         new_frame.add(new_back)
         new_frame.add(first_lay)
         new_frame.add(second_lay)
         new_frame.add(third_lay)
-        new_frame.draw(surface)
+        new_frame.draw(image_dict)
 
         return [list_objects, list_bullets]
