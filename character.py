@@ -4,7 +4,7 @@ from macros import *
 class Character(object):
 
     _bullet_speed = MIDDLE_SPEED
-    _health = CHARACTER_HEALTH
+    health = CHARACTER_HEALTH
 
     def __new__(cls):
 

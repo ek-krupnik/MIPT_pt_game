@@ -40,7 +40,7 @@ class DrawAdapter(object):
 
         if isinstance(object_to_draw, Window):
             image_space = image_dict['space_image']
-            painter.draw_window(surface, image_space, object_to_draw._color)
+            painter.draw_window(surface, image_space)
 
         if isinstance(object_to_draw, Lines):
             painter.draw_lines(surface, object_to_draw._color, object_to_draw._width)
@@ -49,8 +49,7 @@ class DrawAdapter(object):
 class ConcretePainter(object):
 
     @staticmethod
-    def draw_window(surface, space_image, color):
-        # surface.fill(color)
+    def draw_window(surface, space_image):
         surface.blit(space_image, START_COORD)
 
     @staticmethod

@@ -24,18 +24,24 @@ class Parther(object):
 
         first_asteroid_image = pygame.image.load('first_asteroid.png').convert()
         first_asteroid_image = pygame.transform.scale(first_asteroid_image, SMALL_SIZE)
+        first_asteroid_image.set_colorkey(BLACK)
         second_asteroid_image = pygame.image.load('second_asteroid.png').convert()
         second_asteroid_image = pygame.transform.scale(second_asteroid_image, BIG_SIZE)
+        second_asteroid_image.set_colorkey(BLACK)
 
         green_ship = pygame.image.load('green_ship.png').convert()
         green_ship = pygame.transform.scale(green_ship, MIDDLE_SIZE)
+        green_ship.set_colorkey(BLACK)
         red_ship = pygame.image.load('red_ship.png').convert()
         red_ship = pygame.transform.scale(red_ship, MIDDLE_SIZE)
+        red_ship.set_colorkey(BLACK)
         yellow_ship = pygame.image.load('yellow_ship.png').convert()
         yellow_ship = pygame.transform.scale(yellow_ship, MIDDLE_SIZE)
+        yellow_ship.set_colorkey(BLACK)
 
         character_image = pygame.image.load('character.png').convert()
         character_image = pygame.transform.scale(character_image, BIG_SIZE)
+        character_image.set_colorkey(BLACK)
 
         image_dict = {'surface': surface, 'space_image': space_image, 'first_asteroid_image': first_asteroid_image,
                       'second_asteroid_image': second_asteroid_image, 'green_ship': green_ship, 'red_ship': red_ship,
@@ -97,7 +103,7 @@ class Parther(object):
             list_bullets = lists_second[1]
 
             font = pygame.font.Font(None, TEXT_SIZE)
-            info_about_hp = font.render("Health : " + str(main_character._health), True, YELLOW)
+            info_about_hp = font.render("Health : " + str(main_character.health), True, YELLOW)
             info_about_score = font.render("Score : " + str(int(step / 2)), True, YELLOW)
             surface.blit(info_about_hp, TEXT_HP_COORD)
             surface.blit(info_about_score, TEXT_SCORE_COORD)

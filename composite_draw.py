@@ -23,13 +23,13 @@ class ImageLayer(object):
 class ImageOfObject(object):
 
     def __init__(self, new_object, x=0, y=0):
-        self._object = new_object
-        self._x = x
-        self._y = y
+        self.object = new_object
+        self.x = x
+        self.y = y
 
     def draw(self, image_dict):
         draw_adapter = DrawAdapter()
-        draw_adapter.draw_object(image_dict, self._object, self._x, self._y)
+        draw_adapter.draw_object(image_dict, self.object, self.x, self.y)
 
 
 class Painter(object):
@@ -58,7 +58,7 @@ class Painter(object):
             return "Game over"
 
         for image in list_objects:
-            old_object = image._object
+            old_object = image.object
             if isinstance(old_object, Character):
                 first_lay.add(image)
             elif isinstance(old_object, Bullet):
