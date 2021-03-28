@@ -26,6 +26,7 @@ class Ship(object):
     def set_bullet_hit(self, data):
         self._bullet_hit = data
 
+
 class ShipBuilder(object):
 
     @abstractmethod
