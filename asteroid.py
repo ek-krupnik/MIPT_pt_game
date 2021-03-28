@@ -11,10 +11,12 @@ class Asteroid(object):
     def creation(self):
         pass
 
+
 class SmallAsteroid(Asteroid):
     def creation(self):
         self._size = "small"
         return self
+
 
 class BigAsteroid(Asteroid):
     def creation(self):
@@ -28,9 +30,11 @@ class AsteroidFactory(object):
     def create(self):
         pass
 
+
 class SmallAsteroidFactory(AsteroidFactory):
     def create(self) -> SmallAsteroid:
         return SmallAsteroid().creation()
+
 
 class BigAsteroidFactory(AsteroidFactory):
     def create(self) -> BigAsteroid:

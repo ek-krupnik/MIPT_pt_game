@@ -79,14 +79,14 @@ class TestBullet(unittest.TestCase):
 
     def test_up_bullet(self):
         new_bullet = bullet.Bullet("up")
-        self.assertEqual(new_bullet._speed, BULLET_SPEED,
+        self.assertEqual(new_bullet._speed, BULLET_MIDDLE_SPEED,
                          "Incorrect speed after creating an up bullet")
         self.assertEqual(new_bullet._direction, "up",
                          "Incorrect direction after creating an up bullet")
 
     def test_down_bullet(self):
         new_bullet = bullet.Bullet("down")
-        self.assertEqual(new_bullet._speed, BULLET_SPEED,
+        self.assertEqual(new_bullet._speed, BULLET_MIDDLE_SPEED,
                          "Incorrect speed after creating a down bullet")
         self.assertEqual(new_bullet._direction, "down",
                          "Incorrect direction after creating a down bullet")

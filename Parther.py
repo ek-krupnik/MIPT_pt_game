@@ -16,30 +16,36 @@ class Parther(object):
         pygame.init()
         surface = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 
-        space_image = pygame.image.load('space.png').convert()
+        space_image = pygame.image.load('Resources/space.png').convert()
         space_image = pygame.transform.scale(space_image, (WIN_WIDTH, WIN_HEIGHT))
 
-        game_over_image = pygame.image.load('game_over.jpg').convert()
+        game_over_image = pygame.image.load('Resources/game_over.jpg').convert()
         game_over_image = pygame.transform.scale(game_over_image, (WIN_WIDTH, WIN_HEIGHT))
 
-        first_asteroid_image = pygame.image.load('first_asteroid.png').convert()
+        # asteroids image initialization
+        first_asteroid_image = pygame.image.load('Resources/first_asteroid.png').convert()
         first_asteroid_image = pygame.transform.scale(first_asteroid_image, SMALL_SIZE)
         first_asteroid_image.set_colorkey(BLACK)
-        second_asteroid_image = pygame.image.load('second_asteroid.png').convert()
+
+        second_asteroid_image = pygame.image.load('Resources/second_asteroid.png').convert()
         second_asteroid_image = pygame.transform.scale(second_asteroid_image, BIG_SIZE)
         second_asteroid_image.set_colorkey(BLACK)
 
-        green_ship = pygame.image.load('green_ship.png').convert()
+        # ships image initialization
+        green_ship = pygame.image.load('Resources/green_ship.png').convert()
         green_ship = pygame.transform.scale(green_ship, MIDDLE_SIZE)
         green_ship.set_colorkey(BLACK)
-        red_ship = pygame.image.load('red_ship.png').convert()
+
+        red_ship = pygame.image.load('Resources/red_ship.png').convert()
         red_ship = pygame.transform.scale(red_ship, MIDDLE_SIZE)
         red_ship.set_colorkey(BLACK)
-        yellow_ship = pygame.image.load('yellow_ship.png').convert()
+
+        yellow_ship = pygame.image.load('Resources/yellow_ship.png').convert()
         yellow_ship = pygame.transform.scale(yellow_ship, MIDDLE_SIZE)
         yellow_ship.set_colorkey(BLACK)
 
-        character_image = pygame.image.load('character.png').convert()
+        # character image initialization
+        character_image = pygame.image.load('Resources/character.png').convert()
         character_image = pygame.transform.scale(character_image, BIG_SIZE)
         character_image.set_colorkey(BLACK)
 
@@ -88,6 +94,7 @@ class Parther(object):
                 surface.blit(game_over_image, START_COORD)
                 font = pygame.font.Font(None, TEXT_SIZE)
                 info_about_hp = font.render("Game over", True, DARK_RED)
+
                 surface.blit(info_about_hp, TEXT_END_COORD)
                 pygame.display.update()
                 continue
@@ -105,6 +112,7 @@ class Parther(object):
             font = pygame.font.Font(None, TEXT_SIZE)
             info_about_hp = font.render("Health : " + str(main_character.health), True, YELLOW)
             info_about_score = font.render("Score : " + str(int(step / 2)), True, YELLOW)
+
             surface.blit(info_about_hp, TEXT_HP_COORD)
             surface.blit(info_about_score, TEXT_SCORE_COORD)
 
